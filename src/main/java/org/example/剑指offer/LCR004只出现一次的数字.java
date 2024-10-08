@@ -10,7 +10,7 @@ package org.example.剑指offer;
  * @author LiMengTing
  * @version 1.0.0
  */
-public class _004只出现一次的数字 {
+public class LCR004只出现一次的数字 {
 
     /*位运算，每个数的每一位的和余3就是多出来那个数的对应位的值*/
     public int singleNumber(int[] nums) {
@@ -29,7 +29,7 @@ public class _004只出现一次的数字 {
 
     public static void main(String[] args) {
         int[] nums = new int[]{0, 1, 0, 1, 0, 1, 100};
-        _004只出现一次的数字 a = new _004只出现一次的数字();
+        LCR004只出现一次的数字 a = new LCR004只出现一次的数字();
         System.out.println(a.singleNumber(nums));
 
     }
