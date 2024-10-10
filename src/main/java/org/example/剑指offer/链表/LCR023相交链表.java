@@ -27,36 +27,47 @@ public class LCR023相交链表 {
         System.out.println(a.getIntersectionNode(p11, p21).val);
     }
 
+    /*双指针求两条链表的长度之差*/
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode p1 = headA;
         ListNode p2 = headB;
         int length = 0;
         while (p1 != null && p2 != null) {
+            /*两条同时相碰代表长度一致*/
+            if (p1 == p2)
+                return p1;
             p1 = p1.next;
             p2 = p2.next;
         }
+        /*代表第一条链表已经走完然而第二条没走完*/
         if (p1 == null) {
             while (p2 != null) {
                 p2 = p2.next;
                 length++;
             }
+            p2 = headB;
+            /*让第二条链表先走步长为长度差的步数*/
             while (length > 0) {
-                p2 = headB.next;
+                p2 = p2.next;
                 length--;
             }
             p1 = headA;
         }
+        /*代表第二条链表已经走完然而第一条没有走完*/
         if (p2 == null) {
             while (p1 != null) {
                 p1 = p1.next;
                 length++;
             }
+            p1 = headA;
+            /*让第一条链表先走步长为长度差的步数*/
             while (length > 0) {
-                p1 = headA.next;
+                p1 = p1.next;
                 length--;
             }
             p2 = headB;
         }
+        /*开始同时走*/
         while (p1 != p2) {
             p1 = p1.next;
             p2 = p2.next;
