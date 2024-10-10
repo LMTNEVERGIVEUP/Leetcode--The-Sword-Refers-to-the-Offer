@@ -1,4 +1,4 @@
-package org.example.剑指offer;
+package org.example.剑指offer.字符串;
 
 import java.util.LinkedList;
 import java.util.List;

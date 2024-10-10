@@ -1,4 +1,4 @@
-package org.example.剑指offer;
+package org.example.剑指offer.数组;
 
 /**
  * <p>Title: LCR005最大单词长度乘积 </p >

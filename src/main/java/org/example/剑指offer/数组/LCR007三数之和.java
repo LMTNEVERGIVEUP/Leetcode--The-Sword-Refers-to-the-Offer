@@ -1,6 +1,5 @@
-package org.example.剑指offer;
+package org.example.剑指offer.数组;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;

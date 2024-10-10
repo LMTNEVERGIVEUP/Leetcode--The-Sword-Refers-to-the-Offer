@@ -1,4 +1,4 @@
-package org.example.剑指offer;
+package org.example.剑指offer.字符串;
 
 import java.util.HashMap;
 
@@ -35,16 +35,22 @@ public class LCR017最小覆盖字串 {
         while (p1 <= p2 && p2 < s.length() - 1) {
             p2++;
             if (map.containsKey(s.charAt(p2))) {
-                map.put(s.charAt(p2), map.get(s.charAt(p2)) - 1);
-                if (map.get(s.charAt(p2)) == 0) {
+                if (map.get(s.charAt(p2)) == 1) {
                     size--;
-                    if (size == 0)
-                        min_length = Math.min(p2 - p1 + 1, min_length);
-                }
+                } else
+                    map.put(s.charAt(p2), map.get(s.charAt(p2)) - 1);
             }
-
+            while (size == 0 || p1 <= p2) {
+                min_length = Math.min(p2 - p1 + 1, min_length);
+                if (map.containsKey(s.charAt(p1))) {
+                    if (map.get(s.charAt(p1)) == 0) {
+                        size++;
+                        map.put(s.charAt(p1), map.get(s.charAt(p1)) + 1);
+                    }
+                }
+                p1++;
+            }
         }
-        //todo
         return "";
     }
 }

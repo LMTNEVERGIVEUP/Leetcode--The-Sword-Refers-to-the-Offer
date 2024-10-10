@@ -1,4 +1,4 @@
-package org.example.剑指offer;
+package org.example.剑指offer.数组;
 
 /**
  * <p>Title: LCR013二维区域和检索矩阵不可变 </p >

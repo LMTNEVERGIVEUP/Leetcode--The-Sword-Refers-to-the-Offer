@@ -1,4 +1,4 @@
-package org.example.剑指offer;
+package org.example.剑指offer.数组;
 
 /**
  * <p>Title: _004只出现一次的数字 </p >

@@ -1,6 +1,4 @@
-package org.example.剑指offer;
-
-import java.util.HashMap;
+package org.example.剑指offer.字符串;
 
 /**
  * <p>Title: LCR014字符串的排列 </p >
