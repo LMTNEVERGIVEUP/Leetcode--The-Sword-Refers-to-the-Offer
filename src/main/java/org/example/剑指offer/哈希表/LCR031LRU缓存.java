@@ -36,6 +36,7 @@ public class LCR031LRU缓存 {
     }
 }
 
+//todo
 class LRUCache {
     doubleListNode node;
     HashMap<Integer, doubleListNode> map;
