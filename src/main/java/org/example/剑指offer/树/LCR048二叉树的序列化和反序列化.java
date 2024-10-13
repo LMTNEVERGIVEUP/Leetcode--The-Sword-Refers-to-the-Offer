@@ -3,6 +3,9 @@ package org.example.剑指offer.树;
 import org.example.剑指offer.utils.Tree;
 import org.example.剑指offer.utils.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * <p>Title: LCR048二叉树的序列化和反序列化 </p >
  * <p>Description: LCR048二叉树的序列化和反序列化 </p >
@@ -32,12 +35,12 @@ public class LCR048二叉树的序列化和反序列化 {
     }
 
 }
+
 //todo
 class Codec {
-
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
-        return null;
+        return "";
     }
 
     // Decodes your encoded data to tree.
