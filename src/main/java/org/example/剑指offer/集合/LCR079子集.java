@@ -1,4 +1,4 @@
-package org.example.剑指offer.排序;
+package org.example.剑指offer.集合;
 
 import java.util.LinkedList;
 import java.util.List;
