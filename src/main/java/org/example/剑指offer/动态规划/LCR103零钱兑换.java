@@ -29,9 +29,7 @@ public class LCR103零钱兑换 {
             for (int coin : coins) {
                 /*如果当前硬币面额小于所需兑换钱的金额*/
                 if (coin <= i) {
-                    /*选择兑换金额为dp[i - coin]的硬币数量加上自己本身。
-                    这里需要和dp[i]取最小值的原因是假如兑换面额为(i - coin)的面额不存在(即dp[i - coin]==amount+1)
-                    ，那么dp[i - coin] + 1也不存在，因此为了统一格式，令dp[i]依然等于amount + 1*/
+                    /*选择兑换金额为dp[i - coin]的硬币数量加上自己本身和dp[i]之间的最小值，因为dp[i]可能已经有很多方式。*/
                     dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
             }

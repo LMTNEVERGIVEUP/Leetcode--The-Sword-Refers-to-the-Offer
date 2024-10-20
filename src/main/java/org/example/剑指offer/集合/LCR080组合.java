@@ -55,6 +55,6 @@ public class LCR080组合 {
             /*因为list为引用类型，因此往上回溯需要移出最后一个元素*/
             list.removeLast();
         }
-
     }
+    /*时间复杂度o(n)，空间复杂度o(n)*/
 }
