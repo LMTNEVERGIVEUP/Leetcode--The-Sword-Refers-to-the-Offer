@@ -82,9 +82,7 @@ public class LCR067数组中两个数的最大异或值 {
 }
 
 class TRI {
-    // 左子树指向表示 0 的子节点
     TRI left = null;
-    // 右子树指向表示 1 的子节点
     TRI right = null;
 }
 

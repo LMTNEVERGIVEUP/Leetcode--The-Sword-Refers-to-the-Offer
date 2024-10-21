@@ -56,9 +56,9 @@ public class LCR086分割回文串 {
         String[][] ret = new String[rows][];
         for (int i = 0; i < rows; ++i) {
             int cols = tmp.get(i).size();
-            ret[i] = new String[cols]; // 创建列
+            ret[i] = new String[cols];
             for (int j = 0; j < cols; ++j) {
-                ret[i][j] = tmp.get(i).get(j); // 将列表中的元素逐个复制到二维数组中
+                ret[i][j] = tmp.get(i).get(j);
             }
         }
         return ret;
@@ -68,7 +68,7 @@ public class LCR086分割回文串 {
     public void dfs(String s, int i) {
         /*如果已经到达字符串的末尾，说明找到了一种分割方式，将其加入 tmp 中*/
         if (i == n) {
-            tmp.add(new ArrayList<String>(ans)); // 将当前的回文路径 ans 加入到结果中
+            tmp.add(new ArrayList<String>(ans));
             return;
         }
 
