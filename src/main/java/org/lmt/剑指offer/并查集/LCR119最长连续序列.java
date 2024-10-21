@@ -55,7 +55,7 @@ public class LCR119最长连续序列 {
     }
     /*路径压缩*/
     private int findRoot(int index) {
-        if (root[index] < 0) { // 如果该点为根
+        if (root[index] < 0) {
             return index;
         }
         root[index] = findRoot(root[index]);
