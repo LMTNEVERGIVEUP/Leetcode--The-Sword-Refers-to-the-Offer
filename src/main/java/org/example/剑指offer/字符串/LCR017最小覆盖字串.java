@@ -19,39 +19,38 @@ public class LCR017最小覆盖字串 {
     }
 
     public String minWindow(String s, String t) {
-        //TODO
-        HashMap<Character, Integer> map = new HashMap<>();
+        HashMap<Character, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < t.length(); i++) {
-            map.put(t.charAt(i), map.getOrDefault(t.charAt(i), 0) + 1);
+            hashMap.put(t.charAt(i), hashMap.getOrDefault(t.charAt(i), 0) + 1);
         }
-/*        for (int i = 0; i < t.length(); i++) {
-            if (map.containsKey(s.charAt(i))) {
-                map.put(s.charAt(i), s.charAt(i) - 1);
-                if (map.get(s.charAt(i)) == 0)
-            }
-        }*/
-        int min_length = 10000;
-        int p1 = 0, p2 = t.length() - 1;
-        int size = map.size();
-        while (p1 <= p2 && p2 < s.length() - 1) {
-            p2++;
-            if (map.containsKey(s.charAt(p2))) {
-                if (map.get(s.charAt(p2)) == 1) {
-                    size--;
-                } else
-                    map.put(s.charAt(p2), map.get(s.charAt(p2)) - 1);
-            }
-            while (size == 0 || p1 <= p2) {
-                min_length = Math.min(p2 - p1 + 1, min_length);
-                if (map.containsKey(s.charAt(p1))) {
-                    if (map.get(s.charAt(p1)) == 0) {
-                        size++;
-                        map.put(s.charAt(p1), map.get(s.charAt(p1)) + 1);
-                    }
+        int count = hashMap.size();
+        int p1 = 0;
+        int p2 = 0;
+        int minp1 = 0;
+        int minp2 = 0;
+        int minlength = 100001;
+        while (p2 < s.length() || count == 0 && p2 == s.length()) {
+            if (count > 0) {
+                if (hashMap.containsKey(s.charAt(p2))) {
+                    hashMap.put(s.charAt(p2), hashMap.get(s.charAt(p2)) - 1);
+                    if (hashMap.get(s.charAt(p2)) == 0)
+                        count--;
+                }
+                p2++;
+            } else {
+                if (p2 - p1 < minlength) {
+                    minp1 = p1;
+                    minp2 = p2;
+                    minlength = p2 - p1;
+                }
+                if(hashMap.containsKey(s.charAt(p1))) {
+                    hashMap.put(s.charAt(p1), hashMap.get(s.charAt(p1)) + 1);
+                    if (hashMap.get(s.charAt(p1)) > 0)
+                        count++;
                 }
                 p1++;
             }
         }
-        return "";
+        return s.substring(minp1, minp2);
     }
 }

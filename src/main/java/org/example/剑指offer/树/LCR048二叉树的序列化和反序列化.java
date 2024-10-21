@@ -3,7 +3,9 @@ package org.example.剑指offer.树;
 import org.example.剑指offer.utils.Tree;
 import org.example.剑指offer.utils.TreeNode;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -36,15 +38,48 @@ public class LCR048二叉树的序列化和反序列化 {
 
 }
 
-//todo
 class Codec {
-    // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
-        return "";
+        return rserialize(root, "");
     }
 
-    // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        return null;
+        /*将字符串按逗号分割成数组*/
+        String[] dataArray = data.split(",");
+        List<String> dataList = new LinkedList<String>(Arrays.asList(dataArray));
+        return rdeserialize(dataList);
     }
+
+    public String rserialize(TreeNode root, String str) {
+        /*如果当前节点为空加入"None,"表示空节点*/
+        if (root == null) {
+            str += "None,";
+        } else {
+            /*处理当前节点，加入节点值，并递归处理左右子树*/
+            str += str.valueOf(root.val) + ",";
+            str = rserialize(root.left, str);
+            str = rserialize(root.right, str);
+        }
+        /*返回最终序列化字符串*/
+        return str;
+    }
+
+    public TreeNode rdeserialize(List<String> dataList) {
+        /*如果当前数据为 "None"，表示此节点为空*/
+        if (dataList.get(0).equals("None")) {
+            dataList.remove(0);
+            return null;
+        }
+
+        TreeNode root = new TreeNode(Integer.valueOf(dataList.get(0)));
+        /*移除已处理的元素*/
+        dataList.remove(0);
+        /*递归反序列化左子树*/
+        root.left = rdeserialize(dataList);
+        /*递归反序列化右子树*/
+        root.right = rdeserialize(dataList);
+
+        return root;
+    }
+
 }
